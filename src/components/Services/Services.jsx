@@ -34,7 +34,9 @@ const Services = () => {
           PrimeNg, HTML, CSS, SCSS, Javascript, Typescript, Rxjs, Figma.
         </spane>
 
+        <a href={Resume} download="Resume.pdf">
         <button className="button s-button">Download CV</button>
+        </a>
 
         <div className="blur s-blur1" style={{ background: "#ABF1FF94" }}></div>
       </div>
@@ -48,8 +50,8 @@ const Services = () => {
         >
           <Card
             emoji={HeartEmoji}
-            heading={"Design"}
-            detail={"PrimeNg, TailwindCSS, Bootstrap, Material UI, CSS"}
+            heading={"Frontend Design Tools"}
+            detail={"PrimeNg, TailwindCSS, Bootstrap, Material UI, Syncfusion, CSS, SCSS"}
           />
         </motion.div>
         {/* second card */}
@@ -60,8 +62,8 @@ const Services = () => {
         >
           <Card
             emoji={Glasses}
-            heading={"Developer"}
-            detail={"Angular, ReactJS, NextJS, Html, CSS, JavaScript"}
+            heading={"Frontend"}
+            detail={"Angular, ReactJS, NextJS, Graphql, TRPC, Typescript, Html, CSS, JavaScript"}
           />
         </motion.div>
         {/* 3rd */}
@@ -72,8 +74,8 @@ const Services = () => {
         >
           <Card
             emoji={Humble}
-            heading={"UI/UX"}
-            detail={"Figma"}
+            heading={"Backend"}
+            detail={"Node.js, MongoDB, SQL, PostgreSQL, MySQL, SQLite"}
             color="rgba(252, 166, 31, 0.45)"
           />
         </motion.div>

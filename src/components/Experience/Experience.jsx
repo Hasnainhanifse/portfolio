@@ -4,7 +4,7 @@ import "./Experience.css";
 
 const getExperiance = () => {
   const date = new Date().getFullYear();
-  const experienceDate = new Date("2022-01-01").getFullYear();
+  const experienceDate = new Date("2019-01-01").getFullYear();
   const experience = date - experienceDate;
   return experience;
 };
@@ -41,7 +41,7 @@ const Experience = () => {
           className="circle"
           style={{ color: darkMode ? "var(--orange)" : "" }}
         >
-          2+
+          5+
         </div>
         <span style={{ color: darkMode ? "white" : "" }}>companies </span>
         <span>Work</span>
