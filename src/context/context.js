@@ -4,7 +4,7 @@ const type = {
   CURSOR: "CURSOR",
 };
 
-import { createContext, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import { activeSection } from "../utilits";
 const context = createContext();
 
@@ -31,7 +31,7 @@ const reducer = (state, action) => {
   }
 };
 
-const state = (props) => {
+const StateProvider  = (props) => {
   const initialState = {
     nav: "home",
     color: "#4169e1",
@@ -107,6 +107,6 @@ const state = (props) => {
   );
 };
 
-export default state;
+export default StateProvider ;
 
 export { context };

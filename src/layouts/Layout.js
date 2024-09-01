@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import ImageView from "../components/popup/ImageView";
 import VideoPopup from "../components/popup/VideoPopup";
-import State from "../context/context";
+import StateProvider  from "../context/context";
 import { customCursor, dataImage, imgToSVG, preloader } from "../utilits";
 import { waves } from "../waves";
 import Header from "./Header";
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
   }, []);
 
   return (
-    <State>
+    <StateProvider >
       <Head>
         <title>Hasnain Hanif | Full Stack Developer</title>
       </Head>
@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
         <Mouse />
         {/* /MAGIC CURSOR */}
       </div>
-    </State>
+    </StateProvider>
   );
 };
 export default Layout;
