@@ -364,7 +364,7 @@ h6 {
   justify-content: space-between;
 }
 .rs_tm_header .logo img {
-  max-width: 100px;
+  /* max-width: 100px; */
 }
 .rs_tm_header .menu ul {
   margin: 0px;
@@ -731,7 +731,7 @@ h6 {
   clear: both;
   float: left;
   position: relative;
-  padding: 50px 40px;
+  padding: 50px 35px;
 }
 .rs_tm_modalbox .about_popup_details .left .author {
   width: 100%;
@@ -2224,7 +2224,7 @@ h6 {
     padding-left: 35%;
   }
   .rs_tm_modalbox .about_popup_details .left .left_inner {
-    padding: 30px 25px;
+    padding: 30px 10px;
   }
   .rs_tm_modalbox .about_popup_details .left .short .name {
     font-size: 19px;

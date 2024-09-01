@@ -9,11 +9,6 @@ import Layout from "../src/layouts/Layout";
 const Index = () => {
   return (
     <Layout>
-      {/* Scripts */}
-      <Helmet>
-        <script defer data-domain="rsroshi.dev" src="https://app.abralytics.com/assets/tracker/index.js"></script>
-      </Helmet>
-
       {/* HOME */}
       <Home />
       {/* /HOME */}

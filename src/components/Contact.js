@@ -16,7 +16,7 @@ const Contact = () => {
                     <i className="icon-location" />
                     <span>
                       <a href="#" className="href_location">
-                        Park Road, Islamabad, Pakistan
+                        Ghouri Town, Phase#1, Islamabad, Pakistan
                       </a>
                     </span>
                   </div>
@@ -25,7 +25,7 @@ const Contact = () => {
                   <div className="list_inner">
                     <i className="icon-phone" />
                     <span>
-                      <a href="tel:+923115510145">+92 311 55 10 145</a>
+                      <a href="tel:+923487702027">+92 348 77 02 027</a>
                     </span>
                   </div>
                 </li>
@@ -33,19 +33,23 @@ const Contact = () => {
                   <div className="list_inner">
                     <i className="icon-mail-1" />
                     <span>
-                      <a href="mailto:rsroshidev@gmail.com">rsroshidev@gmail.com</a>
+                      <a href="mailto:hasnainhanifse@gmail.com">hasnainhanifse@gmail.com</a>
                     </span>
                   </div>
                 </li>
                 <li>
                   <div className="list_inner">
-                    {/* <i className="icon-facebook-rect" /> */}
+                  <i className="icon-instagram" />
                     <span>
-                      <a href="https://www.github.com/rs-roshi">rs-roshi</a>
+                      <a href="https://github.com/Hasnainhanifse">Hasnain Hanif</a>
                     </span>
-                    <i className="icon-instagram" />
+                  </div>
+                </li>
+                <li>
+                  <div className="list_inner">
+                    <i className="icon-instagram-3" />
                     <span>
-                      <a href="https://www.instagram.com/rsroshi">@rsroshi</a>
+                      <a href="https://www.instagram.com/hasnaindev786">@hasnaindev786</a>
                     </span>
                   </div>
                 </li>

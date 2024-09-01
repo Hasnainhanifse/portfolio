@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import { context } from "../../context/context";
-import { testimonialSlider } from "../../sliderProps";
+// import { testimonialSlider } from "../../sliderProps";
 import AnimatedText from "../AnimatedText";
 import Modal from "./Modal";
+import { introduction } from "src/constants";
 
 const AboutPopup = ({ open, close, aboutData }) => {
   const colorContext = useContext(context);
@@ -18,11 +19,15 @@ const AboutPopup = ({ open, close, aboutData }) => {
             <div className="author">
               <div className="avatar_image">
                 <img src="img/thumbs/1-1.jpg" alt="" />
-                <div className="main" data-img-url="img/about/1.jpg" />
+                <div
+                  className="main"
+                  data-img-url="img/about/about-profile.png"
+                />
               </div>
               <div className="short">
                 <h3 className="name">
-                  {aboutData.firstName} <span className="coloring">{aboutData.lastName}</span>
+                  {aboutData.firstName}{" "}
+                  <span className="coloring">{aboutData.lastName}</span>
                 </h3>
                 <h3 className="job">
                   <AnimatedText />
@@ -48,11 +53,7 @@ const AboutPopup = ({ open, close, aboutData }) => {
                 <li>
                   <div className="list_inner">
                     <i className="icon-location" />
-                    <span>
-                      <a href="#" className="href_location">
-                        {aboutData.address}
-                      </a>
-                    </span>
+                    <span>{aboutData.address}</span>
                   </div>
                 </li>
                 <li>
@@ -67,14 +68,16 @@ const AboutPopup = ({ open, close, aboutData }) => {
                   <div className="list_inner">
                     <i className="icon-mail-1" />
                     <span>
-                      <a href={`mailto:${aboutData.email}`}>{aboutData.email}</a>
+                      <a href={`mailto:${aboutData.email}`}>
+                        {aboutData.email}
+                      </a>
                     </span>
                   </div>
                 </li>
               </ul>
             </div>
             <div className="rs_tm_button full">
-              <a href="#" download>
+              <a href="/cv/hasnain-cv.pdf" download>
                 Download CV
               </a>
             </div>
@@ -91,10 +94,8 @@ const AboutPopup = ({ open, close, aboutData }) => {
                 </h3>
               </div>
               <div className="text">
-                <p>
-                  My name is <span>Roshan Shahzad.</span> I am a full stack developer, and {`I'm`} very passionate and dedicated to my work. With 5 years
-                  experience as a professional developer, I have acquired the skills and knowledge related to many tech stacks.
-                </p>
+              <p dangerouslySetInnerHTML={{ __html: introduction }}>
+              </p>
               </div>
             </div>
             <div className="service">
@@ -129,16 +130,26 @@ const AboutPopup = ({ open, close, aboutData }) => {
                 {aboutData.skills &&
                   aboutData.skills.programming &&
                   aboutData.skills.programming.map((programming, i) => (
-                    <div key={i} className="progress_inner skillsInner___" data-value={95}>
+                    <div
+                      key={i}
+                      className="progress_inner skillsInner___"
+                      data-value={95}
+                    >
                       <span>
                         <span className="label">{programming.name}</span>
-                        <span className="number" style={{ right: `${100 - programming.value}%` }}>
+                        <span
+                          className="number"
+                          style={{ right: `${100 - programming.value}%` }}
+                        >
                           {programming.value}%
                         </span>
                       </span>
                       <div className="background">
                         <div className="bar open">
-                          <div className="bar_in" style={{ width: `${programming.value}%` }} />
+                          <div
+                            className="bar_in"
+                            style={{ width: `${programming.value}%` }}
+                          />
                         </div>
                       </div>
                     </div>
@@ -259,7 +270,7 @@ const AboutPopup = ({ open, close, aboutData }) => {
                 </ul>
               </div>
             </div>
-            <div className="testimonial">
+            {/* <div className="testimonial">
               <div className="about_title">
                 <h3>
                   <span>
@@ -322,7 +333,7 @@ const AboutPopup = ({ open, close, aboutData }) => {
                   </SwiperSlide>
                 </Swiper>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

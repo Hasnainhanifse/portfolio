@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
+import { homeData } from "src/constants";
 
-const homeData = {
-  skills: ["Full Stack Developer", "Product Designer", "DevOps Engineer", "Consultant"],
-};
 const AnimatedText = () => {
   const [text, setText] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
       setText(text < homeData.skills.length - 1 ? text + 1 : 0);
-      console.log(homeData.skills.length - 1, text);
     }, 5000);
     return () => clearInterval(interval);
   });

@@ -1,13 +1,7 @@
 import { useContext } from "react";
-import { context } from "../context/context";
+import { context } from "src/context/context";
 import AnimatedText from "./AnimatedText";
-
-const homeData = {
-  firstName: "Roshan",
-  lastName: "Shahzad",
-  skills: [ "Developer", "Designer", "DevOps Eng.","Freelancer"],
-};
-
+import { homeData } from "src/constants";
 const Home = ({ activeWithBtn }) => {
   const navContext = useContext(context);
   const { changeNav } = navContext;
