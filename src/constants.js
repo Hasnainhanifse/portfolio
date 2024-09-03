@@ -20,9 +20,9 @@ export const aboutData = {
   firstName: name.firstName,
   lastName: name.lastName,
   birthday: "25.12.1993",
-  address: "Islamabad, Pakistan",
-  phn: "+92 348 77 02 027",
-  email: "hasnainhanifse@gmail.com",
+  address: process.env.NEXT_PUBLIC_ADDRESS,
+  phn: process.env.NEXT_PUBLIC_PHONE,
+  email: process.env.NEXT_PUBLIC_EMAIL,
   serviceLists: skills,
   skills: {
     programming: [
@@ -60,7 +60,7 @@ export const aboutData = {
     "img/partners/apea-logo.png",
     "img/partners/omni-logo.png",
     "img/partners/tekgenii-logo.png",
-    "img/partners/4.png",
+    "img/partners/unisync-logo.png",
   ],
 };
 

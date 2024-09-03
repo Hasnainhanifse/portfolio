@@ -1,4 +1,41 @@
+"use client"
+
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 const Contact = () => {
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (formData) => {
+    setLoading(true);
+    setStatus("Sending...");
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("Email sent successfully");
+        reset(); // Clear form fields after successful submission
+      } else {
+        setStatus(`Failed to send email: ${data.message}`);
+      }
+    } catch (error) {
+      setStatus("An error occurred while sending the email.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="rs_tm_section hidden animated" id="contact">
       <div className="section_inner">
@@ -15,8 +52,8 @@ const Contact = () => {
                   <div className="list_inner">
                     <i className="icon-location" />
                     <span>
-                      <a href="#" className="href_location">
-                        Ghouri Town, Phase#1, Islamabad, Pakistan
+                      <a  className="href_location">
+                        {process.env.NEXT_PUBLIC_ADDRESS}
                       </a>
                     </span>
                   </div>
@@ -25,7 +62,7 @@ const Contact = () => {
                   <div className="list_inner">
                     <i className="icon-phone" />
                     <span>
-                      <a href="tel:+923487702027">+92 348 77 02 027</a>
+                      <a href={"tel:"+process.env.NEXT_PUBLIC_PHONE}>{process.env.NEXT_PUBLIC_PHONE}</a>
                     </span>
                   </div>
                 </li>
@@ -33,15 +70,19 @@ const Contact = () => {
                   <div className="list_inner">
                     <i className="icon-mail-1" />
                     <span>
-                      <a href="mailto:hasnainhanifse@gmail.com">hasnainhanifse@gmail.com</a>
+                      <a href={"mailto:"+process.env.NEXT_PUBLIC_EMAIL}>
+                      {process.env.NEXT_PUBLIC_EMAIL}
+                      </a>
                     </span>
                   </div>
                 </li>
                 <li>
                   <div className="list_inner">
-                  <i className="icon-instagram" />
+                    <i className="icon-instagram" />
                     <span>
-                      <a href="https://github.com/Hasnainhanifse">Hasnain Hanif</a>
+                      <a href={process.env.NEXT_PUBLIC_GITHUB}>
+                        {process.env.NEXT_PUBLIC_NAME}
+                      </a>
                     </span>
                   </div>
                 </li>
@@ -49,7 +90,9 @@ const Contact = () => {
                   <div className="list_inner">
                     <i className="icon-instagram-3" />
                     <span>
-                      <a href="https://www.instagram.com/hasnaindev786">@hasnaindev786</a>
+                      <a href={process.env.NEXT_PUBLIC_INSTAGRAM}>
+                        {process.env.NEXT_PUBLIC_INSTAGRAM_HASH}
+                      </a>
                     </span>
                   </div>
                 </li>
@@ -58,56 +101,66 @@ const Contact = () => {
             <div className="right">
               <div className="fields">
                 <form
-                  action="/"
-                  method="post"
                   className="contact_form"
                   id="contact_form"
+                  onSubmit={handleSubmit(onSubmit)}
                 >
-                  <div
-                    className="returnmessage"
-                    data-success="Your message has been received, We will contact you soon."
-                  />
-                  <div className="empty_notice">
-                    <span>Please Fill Required Fields</span>
-                  </div>
                   <div className="first">
                     <ul>
                       <li>
                         <div className="list_inner">
                           <input
-                            id="name"
+                            name="name"
                             type="text"
                             placeholder="Name"
-                            autoComplete="off"
+                            {...register('name', { required: 'Name is required' })}
+                            
                           />
                         </div>
+                          {errors.name && <p style={{ color: 'red' }}>{errors.name.message}</p>}
                       </li>
                       <li>
                         <div className="list_inner">
                           <input
-                            id="email"
-                            type="text"
+                            name="email"
+                            type="email"
                             placeholder="Email"
-                            autoComplete="off"
+                            {...register('email', {
+                              required: 'Email is required',
+                              pattern: {
+                                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                                message: 'Email is not valid',
+                              },
+                            })}
+                            
                           />
                         </div>
+                          {errors.email && <p style={{ color: 'red' }}>{errors.email.message}</p>}
                       </li>
                     </ul>
                   </div>
                   <div className="last">
                     <textarea
-                      id="message"
+                      name="message"
                       placeholder="Message"
-                      defaultValue={""}
+                      {...register('message', { required: 'Message is required' })}
+                      
                     />
                   </div>
+                    {errors.message && <p style={{ color: 'red' }}>{errors.message.message}</p>}
                   <div className="rs_tm_button">
-                    <a id="send_message" href="#">
-                      Send Message
-                    </a>
+                  <a id="send_message" >
+                    <button
+                      type="submit"
+                      style={{ background: "transparent", border: 0 }}
+                      disabled={loading}
+                    >
+                      {loading ? 'Sending...' : 'Send Message'}
+                    </button>
+                  </a>
                   </div>
-                  {/* If you want change mail address to yours, just open "modal" folder >> contact.php and go to line 4 and change detail to yours.  */}
                 </form>
+                {status && <p>{status}</p>}
               </div>
             </div>
           </div>
@@ -116,4 +169,5 @@ const Contact = () => {
     </div>
   );
 };
+
 export default Contact;
