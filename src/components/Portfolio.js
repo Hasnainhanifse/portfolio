@@ -25,16 +25,16 @@ const Portfolio = () => {
                         <img src="img/thumbs/1-1.jpg" alt="" />
                         <div
                           className="main"
-                          data-img-url="img/portfolio/1.jpg"
+                          data-img-url="img/portfolio/uni-sync-main-portfolio.png"
                         />
                       </div>
                       <div className="details">
-                        <h3>Sweet Fruit</h3>
-                        <span>Vimeo</span>
+                        <h3>Unisync</h3>
+                        <span>Angular, TailwindCSS</span>
                       </div>
                       <a
                         className="rs_tm_full_link popup-vimeo"
-                        href="//player.vimeo.com/video/337293658?autoplay=1"
+                        href="img/portfolio/uni-sync-main-portfolio.png"
                       />
                     </div>
                   </SwiperSlide>
@@ -44,16 +44,16 @@ const Portfolio = () => {
                         <img src="img/thumbs/1-1.jpg" alt="" />
                         <div
                           className="main"
-                          data-img-url="img/portfolio/2.jpg"
+                          data-img-url="img/portfolio/oclass-main-portfolio.png"
                         />
                       </div>
                       <div className="details">
-                        <h3>Good Present</h3>
-                        <span>Youtube</span>
+                        <h3>OClass</h3>
+                        <span>Angular, Ionic, Strencils</span>
                       </div>
                       <a
                         className="rs_tm_full_link popup-youtube"
-                        href="//www.youtube.com/embed/7e90gBu4pas?autoplay=1"
+                        href="img/portfolio/oclass-main-portfolio.png"
                       />
                     </div>
                   </SwiperSlide>
@@ -63,16 +63,16 @@ const Portfolio = () => {
                         <img src="img/thumbs/1-1.jpg" alt="" />
                         <div
                           className="main"
-                          data-img-url="img/portfolio/3.jpg"
+                          data-img-url="img/portfolio/tekgenii-main-portfolio.png"
                         />
                       </div>
                       <div className="details">
-                        <h3>Mockup Cream</h3>
-                        <span>Soundcloud</span>
+                        <h3>Tekgenii</h3>
+                        <span>Next.js, tailwindCSS</span>
                       </div>
                       <a
                         className="rs_tm_full_link soundcloude_link mfp-iframe audio"
-                        href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/471954807&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                        href="img/portfolio/tekgenii-main-portfolio.png"
                       />
                     </div>
                   </SwiperSlide>
@@ -82,12 +82,12 @@ const Portfolio = () => {
                         <img src="img/thumbs/1-1.jpg" alt="" />
                         <div
                           className="main"
-                          data-img-url="img/portfolio/4.jpg"
+                          data-img-url="img/portfolio/apea-main-portfolio.png"
                         />
                       </div>
                       <div className="details">
-                        <h3>Delicious Apple</h3>
-                        <span>Detail</span>
+                        <h3>Apea</h3>
+                        <span>Django, React, Graphql</span>
                       </div>
                       <a
                         className="rs_tm_full_link portfolio_popup"
@@ -102,35 +102,16 @@ const Portfolio = () => {
                         <img src="img/thumbs/1-1.jpg" alt="" />
                         <div
                           className="main"
-                          data-img-url="img/portfolio/5.jpg"
+                          data-img-url="img/portfolio/three-you-main-portfolio.png"
                         />
                       </div>
                       <div className="details">
-                        <h3>Blue Lemon</h3>
-                        <span>Image</span>
+                        <h3>Three You</h3>
+                        <span>React, TailwindCSS, FireBase</span>
                       </div>
                       <a
                         className="rs_tm_full_link zoom"
-                        href="img/portfolio/5.jpg"
-                      />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="list_inner">
-                      <div className="image">
-                        <img src="img/thumbs/1-1.jpg" alt="" />
-                        <div
-                          className="main"
-                          data-img-url="img/portfolio/6.jpg"
-                        />
-                      </div>
-                      <div className="details">
-                        <h3>Sweet Cheery</h3>
-                        <span>Image</span>
-                      </div>
-                      <a
-                        className="rs_tm_full_link zoom"
-                        href="img/portfolio/6.jpg"
+                        href="img/portfolio/three-you-main-portfolio.png"
                       />
                     </div>
                   </SwiperSlide>
