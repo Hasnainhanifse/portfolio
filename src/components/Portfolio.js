@@ -1,13 +1,38 @@
 import { Fragment, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { portfolioSlider } from "../sliderProps";
-import PortfolioModal from "./popup/PortfolioModal";
+import { projects } from "src/constants";
+import dynamic from "next/dynamic";
+
+const PortfolioModal = dynamic(() => import("./popup/PortfolioModal"), {
+  ssr: false,
+});
 
 const Portfolio = () => {
   const [modal, setModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  // Open modal and set the project data
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setModal(true);
+  };
+
+  // Close modal and clear project data
+  const closeModal = () => {
+    setModal(false);
+    setSelectedProject(null); // Clear the project to avoid lingering data
+  };
+
   return (
     <Fragment>
-      <PortfolioModal open={modal} close={() => setModal(false)} />
+      {modal && selectedProject && (
+        <PortfolioModal
+          open={modal}
+          close={closeModal}
+          project={selectedProject}
+        />
+      )}
       <div className="rs_tm_section hidden animated" id="portfolio">
         <div className="section_inner">
           <div className="rs_tm_portfolio swiper-section">
@@ -19,102 +44,25 @@ const Portfolio = () => {
             <div className="portfolio_list gallery_zoom">
               <Swiper {...portfolioSlider} className="swiper-container">
                 <div className="swiper-wrapper">
-                  <SwiperSlide className="swiper-slide">
-                    <div className="list_inner">
-                      <div className="image">
-                        <img src="img/thumbs/1-1.jpg" alt="" />
-                        <div
-                          className="main"
-                          data-img-url="img/portfolio/uni-sync-main-portfolio.png"
+                  {projects.map((project) => (
+                    <SwiperSlide key={project.id} className="swiper-slide">
+                      <div className="list_inner">
+                        <div className="image">
+                          <img src="img/thumbs/1-1.jpg" alt="" />
+                          <div className="main" data-img-url={project.banner} />
+                        </div>
+                        <div className="details">
+                          <h3>{project.title}</h3>
+                          <span>{project.subTitle}</span>
+                        </div>
+                        <a
+                          className="rs_tm_full_link popup-vimeo"
+                          href="#"
+                          onClick={() => openModal(project)}
                         />
                       </div>
-                      <div className="details">
-                        <h3>Unisync</h3>
-                        <span>Angular, TailwindCSS</span>
-                      </div>
-                      <a
-                        className="rs_tm_full_link popup-vimeo"
-                        href="img/portfolio/uni-sync-main-portfolio.png"
-                      />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="list_inner">
-                      <div className="image">
-                        <img src="img/thumbs/1-1.jpg" alt="" />
-                        <div
-                          className="main"
-                          data-img-url="img/portfolio/oclass-main-portfolio.png"
-                        />
-                      </div>
-                      <div className="details">
-                        <h3>OClass</h3>
-                        <span>Angular, Ionic, Strencils</span>
-                      </div>
-                      <a
-                        className="rs_tm_full_link popup-youtube"
-                        href="img/portfolio/oclass-main-portfolio.png"
-                      />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="list_inner">
-                      <div className="image">
-                        <img src="img/thumbs/1-1.jpg" alt="" />
-                        <div
-                          className="main"
-                          data-img-url="img/portfolio/tekgenii-main-portfolio.png"
-                        />
-                      </div>
-                      <div className="details">
-                        <h3>Tekgenii</h3>
-                        <span>Next.js, tailwindCSS</span>
-                      </div>
-                      <a
-                        className="rs_tm_full_link soundcloude_link mfp-iframe audio"
-                        href="img/portfolio/tekgenii-main-portfolio.png"
-                      />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="list_inner">
-                      <div className="image">
-                        <img src="img/thumbs/1-1.jpg" alt="" />
-                        <div
-                          className="main"
-                          data-img-url="img/portfolio/apea-main-portfolio.png"
-                        />
-                      </div>
-                      <div className="details">
-                        <h3>Apea</h3>
-                        <span>Django, React, Graphql</span>
-                      </div>
-                      <a
-                        className="rs_tm_full_link portfolio_popup"
-                        href="#"
-                        onClick={() => setModal(true)}
-                      />
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="list_inner">
-                      <div className="image">
-                        <img src="img/thumbs/1-1.jpg" alt="" />
-                        <div
-                          className="main"
-                          data-img-url="img/portfolio/three-you-main-portfolio.png"
-                        />
-                      </div>
-                      <div className="details">
-                        <h3>Three You</h3>
-                        <span>React, TailwindCSS, FireBase</span>
-                      </div>
-                      <a
-                        className="rs_tm_full_link zoom"
-                        href="img/portfolio/three-you-main-portfolio.png"
-                      />
-                    </div>
-                  </SwiperSlide>
+                    </SwiperSlide>
+                  ))}
                 </div>
                 <div className="rs_tm_swiper_progress fill">
                   <div className="my_pagination_in">
@@ -149,4 +97,5 @@ const Portfolio = () => {
     </Fragment>
   );
 };
+
 export default Portfolio;

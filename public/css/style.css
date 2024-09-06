@@ -1535,7 +1535,7 @@ h6 {
 }
 .rs_tm_modalbox .portfolio_popup_details .top_image img {
   position: relative;
-  opacity: 0;
+  /* opacity: 0; */
   min-width: 100%;
 }
 .rs_tm_modalbox .portfolio_popup_details .top_image .main {
@@ -1627,7 +1627,7 @@ h6 {
   li
   .image
   img {
-  opacity: 0;
+  /* opacity: 0; */
   min-width: 100%;
 }
 .rs_tm_modalbox
