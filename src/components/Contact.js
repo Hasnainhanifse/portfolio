@@ -81,7 +81,7 @@ const Contact = () => {
                     <i className="icon-instagram" />
                     <span>
                       <a href={process.env.NEXT_PUBLIC_GITHUB}>
-                        {process.env.NEXT_PUBLIC_NAME}
+                        hasnainhanifse
                       </a>
                     </span>
                   </div>
