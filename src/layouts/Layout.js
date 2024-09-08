@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
 
         {/* WAVE DOTS */}
         {/* SETTINGS */}
-        {/* <Settings /> */}
+        <Settings />
         {/* /SETTINGS */}
         {/* MOBILE MENU */}
         <MobileHeader />

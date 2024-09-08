@@ -1392,7 +1392,7 @@ h6 {
   right: 0px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background: round;
   transform: scale(1) translateZ(0);
 
   -webkit-transition: all 0.3s ease;
